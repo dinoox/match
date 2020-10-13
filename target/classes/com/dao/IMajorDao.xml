@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.IMajorDao">
+
+
+    <select id="findAllMajor" parameterType="int" resultType="Major">
+        select * from major limit #{startIndex},13
+    </select>
+
+    <select id="findAllMajorName"  resultType="Major">
+        select name from major
+    </select>
+
+    <select id="findMajorByNo" parameterType="String" resultType="Major">
+        select * from major where no = #{no}
+    </select>
+
+    <insert id="insertMajor" parameterType="Major">
+        insert into major(no,name,department) values(#{no},#{name},#{department})
+    </insert>
+
+    <update id="updateMajor" parameterType="Major">
+        update major
+        set no=#{no},name=#{name},department=#{department}
+        where no=#{no}
+    </update>
+
+    <delete id="deleteMajorByNo" parameterType="String">
+        delete from major where no = #{no}
+    </delete>
+
+</mapper>

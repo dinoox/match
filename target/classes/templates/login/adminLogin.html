@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>登录页</title>
+
+    <link rel="stylesheet" href="/commons/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/commons/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/login/css/demo.css"/>
+
+    <link rel="stylesheet" href="/login/css/style.css">
+
+    <link rel="stylesheet" href="/mine/mine.css">
+
+    <link rel="shortcut icon" href="/index/images/snake.ico">
+
+</head>
+
+<body>
+
+    <div id="particles-js"></div>
+
+    <ul class="cb-slideshow">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <div class="container-fluid">
+
+        <div class="row cb-slideshow-text-container ">
+            <div class="tm-content col-xl-6 col-sm-8 col-xs-8 ml-auto section">
+
+                <header class="mb-5"><h1>Letter</h1></header>
+                <P class="mb-5">Login page of background administrator</P>
+                <P class="mb-5">All display data can be operated accordingly</P>
+
+                <form action="/adminLogin" class="subscribe-form">
+
+                    <p th:text="${message}" style="color: mediumseagreen; margin-bottom: 10px;"
+                       th:if="${! #strings.isEmpty(message)}"></p>
+
+                    <div class="row form-section">
+
+                        <div class="col-md-7 col-sm-7 col-xs-7">
+                            <input name="username" type="text" class="form-control"
+                                   placeholder="Your Username..." required/>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-5">
+                            <button type="submit" class="tm-btn-subscribe">Enter</button>
+                        </div>
+
+                        <div class="col-md-7 col-sm-7 col-xs-7" style="margin-top: 50px;">
+                            <input name="password" type="text" class="form-control"
+                                   placeholder="Your Password..." required/>
+                        </div>
+
+                    </div>
+
+                </form>
+
+                <div class="tm-social-icons-container text-xs-center">
+                    <a href="#" class="tm-social-link"><i class="fa fa-circle-o"></i></a>
+                    <a href="/toUserLoginPage" class="tm-social-link" title="用户登录"><i class="fa fa-user-o"></i></a>
+                    <a href="/" class="tm-social-link" title="返回首页"><i class="fa fa-anchor"></i></a>
+                    <a href="#" class="tm-social-link"><i class="fa fa-circle-o"></i></a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+    <script src="/login/js/particles.js"></script>
+    <script src="/login/js/app.js"></script>
+
+</html>

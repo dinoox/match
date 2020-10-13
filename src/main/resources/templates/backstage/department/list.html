@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/commons/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/commons/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="/backstage/css/font.css">
+
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/backstage/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/mine/mine.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/backstage/img/favicon.ico">
+
+  </head>
+
+  <body>
+
+    <header class="header">   
+      <div th:replace="~{backstage/commons/bar::topbar}"></div>
+    </header>
+
+    <div class="d-flex align-items-stretch">
+
+      <div th:replace="~{backstage/commons/bar::#sidebar(active = 1)}"></div>
+
+      <div class="page-content">
+
+        <div class="col-lg-12">
+          <div class="block margin-bottom-sm mt-3">
+            <div class="title"><strong>学院管理</strong><a href="/toAddDepartmentPage" class="btn btn-primary right">添加学院</a></div>
+            <div class="table-responsive">
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>院系编号</th>
+                    <th>院系名称</th>
+                    <th>联系方式</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="department,index:${departments}">
+                    <td th:text="${index.count}"></td>
+                    <td th:text="${department.no}"></td>
+                    <td th:text="${department.name}"></td>
+                    <td th:text="${department.contact}"></td>
+                    <td>
+                      <a class="button-edit" th:href="@{/toEditDepartmentPage(no=${department.no})}">编辑</a>
+                      <a class="button-delete"  href="#">删除</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/backstage/vendor/jquery/jquery.min.js"></script>
+    <script src="/commons/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/backstage/js/front.js"></script>
+
+  </body>
+</html>

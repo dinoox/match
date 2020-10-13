@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>智慧校园数据展示</title>
+
+    <link rel="stylesheet" href="/commons/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
+
+    <link rel="stylesheet" href="/commons/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/index/css/template.css">
+
+    <link rel="stylesheet" href="/index/css/owl-carousel.css">
+
+    <link rel="stylesheet" href="/mine/mine.css">
+
+    <link rel="shortcut icon" href="/index/images/snake.ico">
+
+
+</head>
+
+<body style="background: #000;">
+
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        智慧校园
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="#top" class="active">主页</a></li>
+                        <li class="scroll-to-section"><a href="#about">关于我们</a></li>
+                        <li class="scroll-to-section"><a href="#projects">产品</a></li>
+                        <li class="submenu">
+                            <a href="javascript:;">其他</a>
+                            <ul>
+                                <li><a href="#features">技术特点</a></li>
+                                <li><a href="#subscribe">订阅我们</a></li>
+                                <li><a href="#testimonials">xxx</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll-to-section"><a href="#contact-us">联系我们</a></li>
+
+                        <div class="login-icons">
+                            <div class="icons">
+                                <a href="/toAdminLoginPage">
+                                    <div class="layer">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span class="fa fa-font"></span>
+                                    </div>
+                                    <div class="text">AdminLogin</div>
+                                </a>
+                            </div>
+
+                            <div class="icons">
+                                <a href="/toUserLoginPage">
+                                    <div class="layer">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span class="fa fa-user"></span>
+                                    </div>
+                                    <div class="text">UserLogin</div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </ul>
+
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<!-- ***** Search Area ***** -->
+<div id="search">
+    <button type="button" class="close">×</button>
+    <form id="" action="#" method="get">
+        <fieldset>
+            <input type="search" name="q" placeholder="SEARCH KEYWORD(s)" aria-label="Search through site content">
+        </fieldset>
+        <fieldset>
+            <button type="submit" class="main-button">Search</button>
+        </fieldset>
+    </form>
+</div>
+
+<!-- ***** Main Banner Area Start ***** -->
+<div class="main-banner header-text" id="top">
+    <div class="Modern-Slider">
+        <!-- Item -->
+        <div class="item">
+            <div class="img-fill">
+                <video src="/index/video/10_3s.mp4" style="object-fit: cover" width="100%" height="100%" autoplay="autoplay" muted="muted"
+                       loop="loop"></video>
+
+                <div class="text-content">
+                    <h3>欢迎来到平台</h3>
+                    <h5>校园数据展示与分析</h5>
+                    <a href="/toAdminLoginPage" class="main-stroked-button" id="back-stage">后台管理</a>
+                    <a href="/toUserLoginPage" class="main-filled-button" id="fore-end">前端展示</a>
+                </div>
+            </div>
+        </div>
+        <!-- // Item -->
+
+    </div>
+</div>
+<div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+<!-- ***** Main Banner Area End ***** -->
+
+
+<!-- ***** About Area Starts ***** -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="left-text-content">
+                    <div class="section-heading">
+                        <h6>关于我们</h6>
+                        <h2>我们的工作致力于以较精美的图表对校园数据展示与分析</h2>
+                    </div>
+                    <div class="row text-info">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="service-item">
+                                <img src="/index/images/1.png" alt="">
+                                <h4>精美的</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="service-item">
+                                <img src="/index/images/1.png" alt="">
+                                <h4>强健的</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="service-item">
+                                <img src="/index/images/2.png" alt="">
+                                <h4>可信赖</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="service-item">
+                                <img src="/index/images/2.png" alt="">
+                                <h4>保持更新</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <a href="#fore-end" class="main-button-icon">
+                                了解更多 <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="right-text-content">
+                    <p><a rel="nofollow noopener" href="https://templatemo.com/tm-543-breezed"
+                          target="_parent">智慧校园应用系统</a> 的页面采用流行的 Bootstrap 开发,
+						所有页面整体布局使用的 Bootstrap 提供的流式的栅格系统. 页面 JS 特效使用了少量的 jQuery.
+                        <br><br>系统分为前台展示页面及后端管理页面,后端采用 Spring Boot 与 Mybatis 开发,
+						模板引擎选用 Thymeleaf，前台数据展示主要使用 ECharts、Vue 与 Axios 等技术实现.
+
+                        <br><br>如果您喜欢我们的网站, 或者在您浏览的过程中发现有什么问题, 您可以选择 <a
+                                rel="nofollow noopener" href="#contact-us" target="_parent">联系我们</a> 提出您宝贵的建议.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** About Area Ends ***** -->
+
+<!-- ***** Features Big Item Start ***** -->
+<section class="section" id="features">
+    <div class="container">
+        <div class="row text-secondary">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                 data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                <div class="features-item">
+                    <div class="features-icon">
+                        <img src="/index/images/3.png" alt="">
+                    </div>
+                    <div class="features-content">
+                        <h4>Axios</h4>
+                        <p>Axios 是一个基于 promise 的 HTTP 库，可以在浏览器中轻松使用, 支持所有请求类型,
+							也可一次发送多个并发请求, 轻量且易用.</p>
+                        <a href="https://www.kancloud.cn/yunye/axios/234845" class="text-button-icon" target="_blank">
+                            了解更多 <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                 data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
+                <div class="features-item">
+                    <div class="features-icon">
+                        <img src="/index/images/3.png" alt="">
+                    </div>
+                    <div class="features-content">
+                        <h4>ECharts</h4>
+                        <p>用 JavaScript 实现的开源可视化库, 底层依赖轻量级的 ZRender
+							，提供直观，交互丰富，可高度个性化定制的数据可视化图表.</p>
+                        <a href="https://echarts.apache.org/zh/index.html" class="text-button-icon" target="_blank">
+							了解更多 <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                 data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                <div class="features-item">
+                    <div class="features-icon">
+                        <img src="/index/images/3.png" alt="">
+                    </div>
+                    <div class="features-content">
+                        <h4>Vue</h4>
+                        <p>一套用于构建用户界面的渐进式框架. 易于上手，还便于与第三方库或既有项目整合.是一个强大的声明式、响应式的JS框架.</p>
+                        <a href="https://cn.vuejs.org" class="text-button-icon" target="_blank">
+                            了解更多 <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Features Big Item End ***** -->
+
+<!-- ***** Features Big Item Start ***** -->
+<section class="section" id="subscribe">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="section-heading">
+                    <h6>订阅时事通讯</h6>
+                    <h2>不要错过!</h2>
+                </div>
+                <div class="subscribe-content">
+                    <p>如果您喜欢我们的作品且不想错过最新的消息, 可以输入您的邮箱来订阅我们, 我们一旦有新消息就会立刻采取邮件方式通知您.</p>
+                    <div class="subscribe-form offset-2">
+                        <form id="subscribe-now" action="/insertSubscribe" method="get">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-12">
+                                    <fieldset>
+                                        <input name="email" type="text"  placeholder="Enter your email..."
+                                               required="">
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <fieldset>
+                                        <button type="submit"  class="main-button"> 立即订阅
+                                        </button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="subscribe-form">
+                        <p class="text-info mt-4" th:if="${session.subscribe != null}">订阅成功 !</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Features Big Item End ***** -->
+
+
+<!-- ***** Projects Area Starts ***** -->
+<section class="section" id="projects">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="section-heading">
+                    <h6>我们的产品</h6>
+                    <h2>一些产品的模型展示</h2>
+                </div>
+                <div class="filters">
+                    <ul>
+                        <li class="active" data-filter="*">全部</li>
+                        <li data-filter=".des">柱状图模型</li>
+                        <li data-filter=".dev">折线图模型</li>
+                        <li data-filter=".gra">饼型图模型</li>
+                        <li data-filter=".tsh">南丁格尔玫瑰图</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="filters-content">
+                    <div class="row grid">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all des">
+                            <div class="item">
+                                <a href="/index/images/chart2.png" data-lightbox="image-1"
+                                   data-title="Our Projects"><img src="/index/images/chart2.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
+                            <div class="item">
+                                <a href="/index/images/chart1.png" data-lightbox="image-1"
+                                   data-title="Our Projects"><img src="/index/images/chart1.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all gra">
+                            <div class="item">
+                                <a href="/index/images/chart5.png" data-lightbox="image-1"
+                                   data-title="Our Projects"><img src="/index/images/chart5.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all tsh">
+                            <div class="item">
+                                <a href="/index/images/chart6.png" data-lightbox="image-1"
+                                   data-title="Our Projects"><img src="/index/images/chart6.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all dev">
+                            <div class="item">
+                                <a href="/index/images/chart4.png" data-lightbox="image-1"
+                                   data-title="Our Projects"><img src="/index/images/chart4.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 all des">
+                            <div class="item">
+                                <a href="/index/images/chart3.png" data-lightbox="image-1"
+                                   data-title="Our Projects"><img src="/index/images/chart3.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Projects Area Ends ***** -->
+
+<!-- ***** Testimonials Starts ***** -->
+<section class="section" id="testimonials">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h6>Digital Team</h6>
+                    <h2>young and talented members</h2>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 mobile-bottom-fix-big"
+                 data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                <div class="owl-carousel owl-theme">
+                    <div class="item author-item">
+                        <div class="member-thumb">
+                            <img src="/index/images/member-item-01.jpg" alt="">
+                            <div class="hover-effect">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>.01 White Cheese</h4>
+                        <span>Digital Marketer</span>
+                    </div>
+                    <div class="item author-item">
+                        <div class="member-thumb">
+                            <img src="/index/images/member-item-04.jpg" alt="">
+                            <div class="hover-effect">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>.02 Snow Mary</h4>
+                        <span>Site Analyst</span>
+                    </div>
+                    <div class="item author-item">
+                        <div class="member-thumb">
+                            <img src="/index/images/member-item-02.jpg" alt="">
+                            <div class="hover-effect">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>.03 Johnny Egg</h4>
+                        <span>Digital Influencer</span>
+                    </div>
+                    <div class="item author-item">
+                        <div class="member-thumb">
+                            <img src="/index/images/member-item-05.jpg" alt="">
+                            <div class="hover-effect">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>.04 Catherine Phyu</h4>
+                        <span>Co Founder</span>
+                    </div>
+                    <div class="item author-item">
+                        <div class="member-thumb">
+                            <img src="/index/images/member-item-03.jpg" alt="">
+                            <div class="hover-effect">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>.05 Shao Lynn</h4>
+                        <span>Chief Marketing</span>
+                    </div>
+
+                    <div class="item author-item">
+                        <div class="member-thumb">
+                            <img src="/index/images/member-item-04.jpg" alt="">
+                            <div class="hover-effect">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>.06 Emma Honey</h4>
+                        <span>Digital Influencer</span>
+                    </div>
+
+                    <div class="item author-item">
+                        <div class="member-thumb">
+                            <img src="/index/images/member-item-06.jpg" alt="">
+                            <div class="hover-effect">
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>.07 Oliva Sofie</h4>
+                        <span>Website Analyst</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Testimonials Ends ***** -->
+
+<!-- ***** Contact Us Area Starts ***** -->
+<section class="section" id="contact-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-xs-12">
+                <div class="left-text-content">
+                    <div class="section-heading">
+                        <h6>联系我们</h6>
+                        <h2>请随时与我们保持联系!</h2>
+                    </div>
+                    <ul class="contact-info">
+
+                        <li><img src="/index/images/4.png" alt="">010-020-0860</li>
+                        <li><img src="/index/images/5.png" alt="">2433782039@qq.com</li>
+                        <li><img src="/index/images/2.png" alt="">www.company.com</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-xs-12">
+                <div class="contact-form">
+                    <form id="contact" action="/insertFeedback" method="get">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <fieldset>
+                                    <input name="name" type="text" id="name" placeholder="Your Name" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <fieldset>
+                                    <input name="phone" type="text" id="phone" placeholder="Your Phone" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-12">
+                                <fieldset>
+                                    <input name="email" type="email" id="email" placeholder="Your Email" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+										<textarea name="message" rows="6" id="message" placeholder="Message"
+                                                  required=""></textarea>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="main-button-icon"> 发送消息 <i
+                                            class="fa fa-arrow-right"></i></button>
+                                    <p class="ml-5 text-info d-lg-inline-block lead" th:if="${session.contact} != null"> 发送成功 ! </p>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Contact Us Area Ends ***** -->
+
+<!-- ***** Footer Start ***** -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xs-12">
+                <div class="left-text-content">
+                    <p>xxxxxxxxx <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">xxxx</a> - xxxx <a
+                            href="http://www.cssmoban.com/" title="网页模板" target="_blank">xxx</a></p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12">
+                <div class="right-text-content">
+                    <ul class="social-icons">
+                        <li><p>Follow Us</p></li>
+                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
+                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-twitter"></i></a></li>
+                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- jQuery -->
+<script src="/index/js/jquery-2.1.0.min.js"></script>
+
+
+<!-- Plugins-->
+<script src="/index/js/owl-carousel.js"></script>
+<script src="/index/js/scrollreveal.min.js"></script>
+<script src="/index/js/waypoints.min.js"></script>
+<script src="/index/js/jquery.counterup.min.js"></script>
+<script src="/index/js/imgfix.min.js"></script>
+<script src="/index/js/slick.js"></script>
+<script src="/index/js/isotope.js"></script>
+
+<!-- Global Init -->
+<script src="/index/js/custom.js"></script>
+
+
+</body>
+</html>

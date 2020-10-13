@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.IStudentEmploymentInfoDao">
+
+    <select id="findAllStudentEmploymentInfo" resultType="StudentEmploymentInfo">
+        select * from student_employment_info
+    </select>
+
+
+    <insert id="insertStudentEmploymentInfo" parameterType="StudentEmploymentInfo">
+        insert into student_employment_info(no,vocation,province,city)
+        values (#{no},#{vocation},#{province},#{city})
+    </insert>
+
+    <update id="updateStudentEmploymentInfo" parameterType="StudentEmploymentInfo">
+        update student_employment_info
+        set province = #{province},city = #{city}
+        where no = #{no}
+    </update>
+
+
+</mapper>

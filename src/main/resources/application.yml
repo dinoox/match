@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    username: root
+    password: 12345xiaoyu
+    url: jdbc:mysql://localhost:3306/match
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    druid:
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      initial-size: 5
+      #间隔60s检测一次
+      time-between-eviction-runs-millis: 60000
+      #最小空闲对象的生存事件
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+
+      filters: wall,slf4j
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+      stat-view-servlet:
+        url-pattern: /druid/*
+        login-username: admin
+        login-password: 12345
+        allow: 127.0.0.1
+        reset-enable: false
+
+  thymeleaf:
+    cache: false
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  messages:
+    basename: i18n.backstage
+
+mybatis:
+  type-aliases-package: com.bean
+  mapper-locations: classpath:com/dao/*.xml
+server:
+  port: 80

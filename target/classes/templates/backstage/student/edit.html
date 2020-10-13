@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/commons/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/commons/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="/backstage/css/font.css">
+
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/backstage/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/mine/mine.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/backstage/img/favicon.ico">
+
+
+  </head>
+
+  <body>
+    <header class="header">   
+      <div th:replace="~{backstage/commons/bar::topbar}"></div>
+    </header>
+    <div class="d-flex align-items-stretch">
+
+      <div th:replace="~{backstage/commons/bar::#sidebar(active = 2)}"></div>
+
+      <div class="page-content">
+
+        <div class="col-lg-6">
+          <div class="block mt-3">
+            <div class="title"><strong class="d-block">学生修改</strong><span class="d-block">请修改学生相关信息...</span></div>
+            <div class="block-body">
+              <form class="form-horizontal" action="/updateStudent">
+
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">学生证号</label>
+                  <div class="col-sm-9">
+                    <input id="inputHorizontalSuccess" name="no" th:value="${student.no}" type="text"   class="form-control form-control-success"><small class="form-text">输入想要的学生证号</small>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">学生姓名</label>
+                  <div class="col-sm-9">
+                    <input name="name" th:value="${student.name}"  type="text"  class="form-control form-control-success"><small class="form-text">输入想要的学生姓名</small>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">学生年龄</label>
+                  <div class="col-sm-9">
+                    <input  name="age" th:value="${student.age}" type="text"  class="form-control form-control-warning"><small class="form-text">输入想要的学生年龄</small>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">学生性别</label>
+                  <div class="col-sm-9">
+                    <div>
+                      <input id="optionsRadios1" type="radio" th:checked="${student.sex == '男'}" value="男" name="sex">
+                      <label for="optionsRadios1">男</label>
+                      <input id="optionsRadios2" type="radio" th:checked="${student.sex == '女'}" value="女" name="sex">
+                      <label for="optionsRadios2">女</label>
+                    </div>
+                   <small class="form-text">输入想要的学生性别</small>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">学生专业</label>
+                  <div class="col-sm-9">
+                    <select class="form-control"  name="major">
+                      <option th:each="major:${majors}" th:text="${major.name}" th:value="${major.name}" th:selected="${student.major == major.name}"></option>
+                    </select>
+                    <small class="form-text">选择想要的学生专业</small>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">省份来源</label>
+                  <div class="col-sm-9">
+                    <select class="form-control"  name="province">
+                      <option th:each="province:${provinces}" th:text="${province.name}" th:value="${province.name}" th:selected="${student.province == province.name}"></option>
+                    </select>
+                    <small class="form-text">选择学生的省份来源</small>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">贫困等级</label>
+                  <div class="col-sm-9">
+                    <select class="form-control"  name="povertyLevel">
+                      <option th:each="poverty:${allPoverty}" th:text="${poverty.level}" th:value="${poverty.level}" th:selected="${student.povertyLevel == poverty.level}"></option>
+                    </select>
+                    <small class="form-text">选择学生的贫困等级</small>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">入学时间</label>
+                  <div class="col-sm-9">
+                    <input  name="admissionTime" th:value="${student.admissionTime}" type="text"  class="form-control form-control-warning"><small class="form-text">输入学生的入学时间</small>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="col-sm-9 offset-sm-3">
+                    <input type="submit" value="修改" class="btn btn-primary">
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="/backstage/vendor/jquery/jquery.min.js"></script>
+    <script src="/backstage/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="/commons/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/backstage/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/backstage/vendor/chart.js/Chart.min.js"></script>
+    <script src="/backstage/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/backstage/js/charts-home.js"></script>
+    <script src="/backstage/js/front.js"></script>
+
+  </body>
+</html>

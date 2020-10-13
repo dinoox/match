@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/commons/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/commons/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="/backstage/css/font.css">
+
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/backstage/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/mine/mine.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/backstage/img/favicon.ico">
+
+  </head>
+
+  <body>
+
+    <header class="header">   
+      <div th:replace="~{backstage/commons/bar::topbar}"></div>
+    </header>
+
+    <div class="d-flex align-items-stretch">
+
+      <div th:replace="~{backstage/commons/bar::#sidebar(active = 2)}"></div>
+
+      <div class="page-content">
+
+        <div class="col-lg-12">
+          <div class="block mt-3">
+            <form class="form-horizontal" action="/findStudentByMajor">
+
+              <div class="form-group row">
+                <label class="col-sm-3 form-control-label">学生专业</label>
+                <div class="col-sm-9">
+                  <select class="form-control"  name="major">
+                    <option th:each="major:${majors}" th:text="${major.name}" th:value="${major.name}" ></option>
+                  </select>
+                  <small class="form-text">选择想要的学生专业</small>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-9 offset-sm-3">
+                  <input type="submit" value="查询" class="btn btn-primary">
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <script src="/backstage/vendor/jquery/jquery.min.js"></script>
+    <script src="/backstage/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="/commons/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/backstage/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/backstage/vendor/chart.js/Chart.min.js"></script>
+    <script src="/backstage/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/backstage/js/charts-home.js"></script>
+    <script src="/backstage/js/front.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>sex</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/commons/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
+
+    <link rel="stylesheet" href="/commons/font-awesome/css/font-awesome.css">
+
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/forestage/css/style.default.css">
+
+    <link rel="stylesheet" href="/forestage/css/mine.css">
+
+    <link rel="shortcut icon" href="/index/images/snake.ico">
+
+</head>
+
+<body>
+<div id="app">
+    <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#"
+                                                                          class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i
+                class="fa fa-align-left"></i></a><a href="index.html"
+                                                    class="navbar-brand font-weight-bold text-uppercase text-base">学生性别统计</a>
+            <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+                <li class="nav-item">
+                    <form id="searchForm" class="ml-auto d-none d-lg-block">
+                        <div class="form-group position-relative mb-0">
+                            <button type="submit" style="top: -3px; left: 0;"
+                                    class="position-absolute bg-white border-0 p-0"><i
+                                    class="o-search-magnify-1 text-gray text-lg"></i></button>
+                            <input type="search" placeholder="Search ..."
+                                   class="form-control form-control-sm border-0 no-shadow pl-4">
+                        </div>
+                    </form>
+                </li>
+
+                <li class="nav-item dropdown mr-3"><a id="notifications" href="http://example.com"
+                                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                      class="nav-link dropdown-toggle text-gray-400 px-1"><i
+                        class="fa fa-bell fa-lg"></i><span class="notification-icon"></span></a>
+                    <div aria-labelledby="notifications" class="dropdown-menu"><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-sm bg-violet text-white"><i class="fa fa-heart"></i></div>
+                            <div class="text ml-2">
+                                <p class="mb-0" @click="grade=2016">切换2016年级数据视角</p>
+                            </div>
+                        </div>
+                    </a><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-sm bg-green text-white"><i class="fa fa-heartbeat"></i></div>
+                            <div class="text ml-2">
+                                <p class="mb-0" @click="grade=2017">切换2017年级数据视角</p>
+                            </div>
+                        </div>
+                    </a><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-sm bg-blue text-white"><i class="fa fa-heartbeat"></i></div>
+                            <div class="text ml-2">
+                                <p class="mb-0" @click="grade=2018">切换2018年级数据视角</p>
+                            </div>
+                        </div>
+                    </a><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-sm bg-warning text-white"><i class="fa fa-heart"></i></div>
+                            <div class="text ml-2">
+                                <p class="mb-0" @click="grade=2019">切换2019年级数据视角</p>
+                            </div>
+                        </div>
+                    </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-center">
+                            <small class="font-weight-bold headings-font-family text-uppercase">xxx xx xx xx xxx</small>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown"
+                                                         aria-haspopup="true" aria-expanded="false"
+                                                         class="nav-link dropdown-toggle"><img
+                        src="/forestage/img/avatar-6.jpg"
+                        alt="Jason Doe"
+                        style="max-width: 2.5rem;"
+                        class="img-fluid rounded-circle shadow"></a>
+                    <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong
+                            class="d-block text-uppercase headings-font-family">Mark Stephen</strong><small>Web
+                        Developer</small></a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity
+                            log </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="/" class="dropdown-item">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+
+        <div id="sidebar" class="sidebar py-3">
+            <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN
+            </div>
+            <ul class="sidebar-menu list-unstyled">
+                <li class="sidebar-list-item"><a href="/toStudentNumPage" class="sidebar-link text-muted"><i
+                        class="fa fa-paper-plane fa-fw fa-2x mr-3 text-info"></i><span>学生数目</span></a></li>
+                <li class="sidebar-list-item"><a href="/toSexRatePage" class="sidebar-link text-muted active"><i
+                        class="fa fa-venus-mars fa-fw fa-2x  mr-3 text-info"></i><span>性别比例</span></a></li>
+                <li class="sidebar-list-item"><a href="/toStudentSourcePage" class="sidebar-link text-muted"><i
+                        class="fa fa-envira fa-fw fa-2x  mr-3 text-info"></i><span>学生来源</span></a></li>
+                <li class="sidebar-list-item"><a href="/toCardConsumePage" class="sidebar-link text-muted"><i
+                        class="fa fa-deviantart fa-fw fa-2x mr-3 text-info"></i><span>卡通消费</span></a></li>
+                <li class="sidebar-list-item"><a href="/toGoodStudentPage" class="sidebar-link text-muted"><i
+                        class="fa fa-pagelines fa-fw fa-2x mr-3 text-info"></i><span>学霸指数</span></a></li>
+                <li class="sidebar-list-item"><a href="/" class="sidebar-link text-muted"><i
+                        class="fa fa-sign-out mr-3 fa-fw fa-2x text-info "></i><span>Login</span></a></li>
+            </ul>
+            <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">
+                EXTRAS
+            </div>
+            <ul class="sidebar-menu list-unstyled">
+                <li class="sidebar-list-item"><a href="/toRecruitInfoPage" class="sidebar-link text-muted"><i
+                        class="fa fa fa-globe fa-fw fa-2x mr-3 text-info"></i><span>招生信息</span></a></li>
+                <li class="sidebar-list-item"><a href="/toEmploymentInfoPage" class="sidebar-link text-muted"><i
+                        class="fa fa-google-wallet fa-fw fa-2x mr-3 text-info"></i><span>就业信息</span></a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i
+                        class="fa fa-optin-monster fa-2x mr-3 text-info"></i><span>Demo</span></a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i
+                        class="fa fa-optin-monster fa-2x mr-3 text-info"></i><span>Demo</span></a></li>
+            </ul>
+        </div>
+
+        <div class="page-holder w-100 d-flex flex-wrap">
+            <div class="container-fluid px-xl-5">
+                <section class="py-5">
+
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                            <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                                <div class="flex-grow-1 d-flex align-items-center">
+                                    <div class="dot mr-3 bg-success"></div>
+                                    <div class="text">
+                                        <h6 class="mb-0">在校学生总数</h6><span class="text-gray tip-studentNum"></span>
+                                    </div>
+                                </div>
+                                <div class="icon text-white bg-success"><i class="fa fa-server"></i></div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                            <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                                <div class="flex-grow-1 d-flex align-items-center">
+                                    <div class="dot mr-3 bg-blue"></div>
+                                    <div class="text">
+                                        <h6 class="mb-0">男性学生总数</h6><span class="text-gray tip-maleNum"></span>
+                                    </div>
+                                </div>
+                                <div class="icon text-white bg-blue"><i class="fa fa-mars"></i></div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                            <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                                <div class="flex-grow-1 d-flex align-items-center">
+                                    <div class="dot mr-3 bg-viole"></div>
+                                    <div class="text">
+                                        <h6 class="mb-0">女性学生总数</h6><span class="text-gray tip-femaleNum"></span>
+                                    </div>
+                                </div>
+                                <div class="icon text-white bg-violet"><i class="fa fa-venus"></i></div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 mb-4 mb-xl-0">
+                            <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                                <div class="flex-grow-1 d-flex align-items-center">
+                                    <div class="dot mr-3 bg-red"></div>
+                                    <div class="text">
+                                        <h6 class="mb-0">生源来自省份数</h6><span class="text-gray">31个</span>
+                                    </div>
+                                </div>
+                                <div class="icon text-white bg-red"><i class="fa fa-anchor"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section>
+                    <div class="row mb-5">
+                        <div class="col-lg-12 mb-4 mb-lg-0">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="h6 text-uppercase mb-0">全国各省份学生性别占比</h2>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-gray">来自全国34个省份的招生人数男女比例......</p>
+                                    <div class="chart-height8 chart1"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 mb-4 mb-lg-0">
+                            <div class="card mb-5 mt-5">
+                                <div class="card-body">
+                                    <div class="row align-items-center mb-2 flex-row">
+                                        <div class="col-lg-5">
+                                            <h2 class="mb-0 d-flex align-items-center"><span
+                                                    class="tip-studentNum"></span><span
+                                                    class="dot bg-violet d-inline-block ml-3"></span></h2><span
+                                                class="text-muted text-uppercase small">在校生男女人数总和</span>
+                                            <hr>
+                                            <small class="text-muted">看起来似乎男生很多......</small>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="chart-height2 chart2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row align-items-center flex-row">
+                                        <div class="col-lg-5">
+                                            <h2 class="mb-0 d-flex align-items-center"><span
+                                                    class="tip-provinceStudentNum"></span><span
+                                                    class="dot bg-blue d-inline-block ml-3"></span></h2><span
+                                                class="text-muted text-uppercase small">山东生源信息</span>
+                                            <hr>
+                                            <small class="text-muted">这看起来确实不妙......</small>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="chart-height2 chart3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="h6 text-uppercase mb-0">各学院学生性别占比</h2>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-gray">来自本校18个学院的男女比例.......</p>
+                                    <div class="chart-height7 chart4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-5">
+                    <div class="row text-dark">
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <div class="card rounded credit-card bg-hover-gradient-violet">
+                                <div class="content d-flex flex-column justify-content-between p-4">
+                                    <h5 class="text-center">信息科学与工程学院</h5>
+                                    <p class="mb-2 text-gray">信息科学与工程学院成立于2002年10月，其前身是1999年成立的理学院和在1963年成立的基础部
+                                        该学院偏理科，男性学生占比较高</p>
+                                    <div class="d-flex justify-content-between align-items-end pt-3">
+                                        <div class="text-uppercase">
+                                            <div class="font-weight-bold d-block">Tel Number</div>
+                                            <small class="text-gray">0538 - 8249311</small>
+                                        </div>
+                                        <h4 class="mb-0">$</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <div class="card rounded credit-card bg-hover-gradient-blue">
+                                <div class="content d-flex flex-column justify-content-between p-4">
+                                    <h5 class="text-center">外国语学院</h5>
+                                    <p class="mb-2 text-gray">
+                                        外国语学院成立于1999年。建院以来，按照"一体两翼、制度管院、厚德强院、文化兴院"的发展思路，办学条件不断改善，教学、科研水平大幅提升，学院女生数量约达73%</p>
+                                    <div class="d-flex justify-content-between align-items-end pt-3">
+                                        <div class="text-uppercase">
+                                            <div class="font-weight-bold d-block">Tel Number</div>
+                                            <small class="text-gray">0538 - 8249800</small>
+                                        </div>
+                                        <h4 class="mb-0">$</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <div class="card rounded credit-card bg-hover-gradient-green">
+                                <div class="content d-flex flex-column justify-content-between p-4">
+                                    <h5 class="text-center">机械与电子工程学院</h5>
+                                    <p class="mb-2 text-gray">
+                                        机械与电子程学院创建于1959年，原为农业机械化系，2000年更名为机械与电子工程学院。同信息学院一样男性学生比例约占68%</p>
+                                    <div class="d-flex justify-content-between align-items-end pt-3">
+                                        <div class="text-uppercase">
+                                            <div class="font-weight-bold d-block">Tel Number</div>
+                                            <small class="text-gray">0538 - 8246101</small>
+                                        </div>
+                                        <h4 class="mb-0">$</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="pb-5" id="section1">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card mb-5 mb-lg-0">
+                                <div class="card-header">
+                                    <h2 class="h6 mb-0 text-uppercase">任意省份学生性别比例展示</h2>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-gray">请在右边选择相应省份 然后进行查询...</p>
+                                    <div class="chart-height6 chart5"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+
+                            <div class="bg-white shadow roundy px-4 py-3 d-flex align-items-center justify-content-between mb-4">
+                                <div class="flex-grow-1 d-flex align-items-center">
+                                    <div class="dot mr-3 bg-green"></div>
+                                    <div class="text">
+                                        <h6 class="mb-1">学生总数</h6><span
+                                            class="text-gray">{{maleNum + femaleNum}} 人</span>
+                                    </div>
+                                </div>
+                                <div class="icon bg-green text-white"><i class="fas fa-dollar-sign"></i></div>
+                            </div>
+
+                            <div class="bg-white shadow roundy px-4 py-3 d-flex align-items-center justify-content-between mb-4">
+                                <div class="flex-grow-1 d-flex align-items-center">
+                                    <div class="dot mr-3 bg-violet"></div>
+                                    <div class="text">
+                                        <h6 class="mb-1">女生数量</h6><span class="text-gray">{{femaleNum}} 人</span>
+                                    </div>
+                                </div>
+                                <div class="icon bg-violet text-white"><i class="fas fa-clipboard-check"></i></div>
+                            </div>
+
+                            <div class="bg-white shadow roundy px-4 py-3 d-flex align-items-center justify-content-between mb-5">
+                                <div class="flex-grow-1 d-flex align-items-center">
+                                    <div class="dot mr-3 bg-blue"></div>
+                                    <div class="text">
+                                        <h6 class="mb-1">男生数量</h6><span class="text-gray">{{maleNum}} 人</span>
+                                    </div>
+                                </div>
+                                <div class="icon bg-blue text-white"><i class="fas fa-user-friends"></i></div>
+                            </div>
+
+                            <div class="card px-5 py-4">
+                                <h2 class="mb-0 d-flex align-items-center"><span class="h5">省份列表</span><span
+                                        class="dot bg-blue d-inline-block ml-2 mb-2"></span></h2><span
+                                    class="text-muted mb-1">选择省份...</span>
+                                <select class="form-control mb-2" id="provinceName">
+                                    <option v-for="province in provinces">{{province.name}}</option>
+                                </select>
+
+
+                                <button class="btn btn-info" @click="findProvinceAllCityStudentNum">查询</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left text-primary">
+                            <p class="mb-2 mb-md-0">Your company &copy; 2020-2021</p>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right text-gray-400">
+                            <p class="mb-0">2019级相关学生性别统计
+                                <a href="javascript:;">智慧校园</a> - 数据来源
+                                <a href="javascript:;">后台接口</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!-- jquery + bootstrap -->
+<script src="/commons/jquery/jquery.min.js"></script>
+<script src="/commons/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- axios + echarts + vue -->
+<script src="/forestage/js/axios.min.js"></script>
+<script src="/forestage/js/echarts.min.js"></script>
+<script src="/forestage/js/vue.min.js"></script>
+
+<!-- mine -->
+<script src="/forestage/js/clickEffects.js"></script>
+<script src="/forestage/js/chart/sex.js"></script>
+
+</body>
+
+
+</html>

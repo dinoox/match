@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/commons/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
+
+    <link rel="stylesheet" href="/commons/font-awesome/css/font-awesome.css">
+
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/forestage/css/style.default.css">
+
+    <link rel="stylesheet" href="/forestage/css/mine.css">
+
+    <link rel="shortcut icon" href="/index/images/snake.ico">
+
+</head>
+
+<body>
+<div id="app">
+    <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#"
+                                                                          class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i
+                class="fa fa-align-left"></i></a><a
+                href="index.html" class="navbar-brand font-weight-bold text-uppercase text-base">学霸指数统计</a>
+            <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
+                <li class="nav-item">
+                    <form id="searchForm" class="ml-auto d-none d-lg-block">
+                        <div class="form-group position-relative mb-0">
+                            <button type="submit" style="top: -3px; left: 0;"
+                                    class="position-absolute bg-white border-0 p-0"><i
+                                    class="o-search-magnify-1 text-gray text-lg"></i></button>
+                            <input type="search" placeholder="Search ..."
+                                   class="form-control form-control-sm border-0 no-shadow pl-4">
+                        </div>
+                    </form>
+                </li>
+
+                <li class="nav-item dropdown mr-3"><a id="notifications" href="http://example.com"
+                                                      data-toggle="dropdown"
+                                                      aria-haspopup="true" aria-expanded="false"
+                                                      class="nav-link dropdown-toggle text-gray-400 px-1"><i
+                        class="fa fa-bell fa-lg"></i><span class="notification-icon"></span></a>
+                    <div aria-labelledby="notifications" class="dropdown-menu"><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-sm bg-violet text-white"><i class="fa fa-heart"></i></div>
+                            <div class="text ml-2">
+                                <p class="mb-0" @click="grade=2016">切换2016年级数据视角</p>
+                            </div>
+                        </div>
+                    </a><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-sm bg-green text-white"><i class="fa fa-heartbeat"></i></div>
+                            <div class="text ml-2">
+                                <p class="mb-0" @click="grade=2017">切换2017年级数据视角</p>
+                            </div>
+                        </div>
+                    </a><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-sm bg-blue text-white"><i class="fa fa-heartbeat"></i></div>
+                            <div class="text ml-2">
+                                <p class="mb-0" @click="grade=2018">切换2018年级数据视角</p>
+                            </div>
+                        </div>
+                    </a><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <div class="icon icon-sm bg-warning text-white"><i class="fa fa-heart"></i></div>
+                            <div class="text ml-2">
+                                <p class="mb-0" @click="grade=2019">切换2019年级数据视角</p>
+                            </div>
+                        </div>
+                    </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item text-center">
+                            <small class="font-weight-bold headings-font-family text-uppercase">xxx xx xx xx xxx</small>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown"
+                                                         aria-haspopup="true" aria-expanded="false"
+                                                         class="nav-link dropdown-toggle"><img
+                        src="/forestage/img/avatar-6.jpg"
+                        alt="Jason Doe"
+                        style="max-width: 2.5rem;"
+                        class="img-fluid rounded-circle shadow"></a>
+                    <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong
+                            class="d-block text-uppercase headings-font-family">Mark Stephen</strong><small>Web
+                        Developer</small></a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">Settings</a><a href="#"
+                                                                         class="dropdown-item">Activity log </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="/" class="dropdown-item">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="d-flex align-items-stretch">
+
+        <div id="sidebar" class="sidebar py-3">
+            <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN
+            </div>
+            <ul class="sidebar-menu list-unstyled">
+                <li class="sidebar-list-item"><a href="/toStudentNumPage" class="sidebar-link text-muted"><i
+                        class="fa fa-paper-plane fa-fw fa-2x mr-3 text-info"></i><span>学生数目</span></a></li>
+                <li class="sidebar-list-item"><a href="/toSexRatePage" class="sidebar-link text-muted"><i
+                        class="fa fa-venus-mars fa-fw fa-2x  mr-3 text-info"></i><span>性别比例</span></a></li>
+                <li class="sidebar-list-item"><a href="/toStudentSourcePage" class="sidebar-link text-muted"><i
+                        class="fa fa-envira fa-fw fa-2x  mr-3 text-info"></i><span>学生来源</span></a></li>
+                <li class="sidebar-list-item"><a href="/toCardConsumePage" class="sidebar-link text-muted"><i
+                        class="fa fa-deviantart fa-fw fa-2x mr-3 text-info"></i><span>卡通消费</span></a></li>
+                <li class="sidebar-list-item"><a href="/toGoodStudentPage" class="sidebar-link text-muted active"><i
+                        class="fa fa-pagelines fa-fw fa-2x mr-3 text-info"></i><span>学霸指数</span></a></li>
+                <li class="sidebar-list-item"><a href="/" class="sidebar-link text-muted"><i
+                        class="fa fa-sign-out mr-3 fa-fw fa-2x text-info "></i><span>Login</span></a></li>
+            </ul>
+            <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">
+                EXTRAS
+            </div>
+            <ul class="sidebar-menu list-unstyled">
+                <li class="sidebar-list-item"><a href="/toRecruitInfoPage" class="sidebar-link text-muted"><i
+                        class="fa fa fa-globe fa-fw fa-2x mr-3 text-info"></i><span>招生信息</span></a></li>
+                <li class="sidebar-list-item"><a href="/toEmploymentInfoPage" class="sidebar-link text-muted"><i
+                        class="fa fa-google-wallet fa-fw fa-2x mr-3 text-info"></i><span>就业信息</span></a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i
+                        class="fa fa-optin-monster fa-2x mr-3 text-info"></i><span>Demo</span></a></li>
+                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i
+                        class="fa fa-optin-monster fa-2x mr-3 text-info"></i><span>Demo</span></a></li>
+            </ul>
+        </div>
+
+
+        <div class="page-holder w-100 d-flex flex-wrap">
+            <div class="container-fluid px-xl-5">
+                <section class="py-5">
+                    <div class="row mb-4">
+                        <div class="col-lg-12 mb-4 mb-lg-0">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h2 class="h6 text-uppercase mb-0">各学院学霸展示</h2>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-gray">本校18个学院的学霸信息展示......</p>
+                                    <div class="chart-height10 chart1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-lg-8 mb-4 mb-lg-0">
+                            <div class="card mb-5">
+                                <div class="card-header">
+                                    <h6 class="text-uppercase mb-0">全校学霸天梯榜Top10</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-height9 chart2"></div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="text-uppercase mb-0">详细信息</h6>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table card-text">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>姓名</th>
+                                            <th>专业</th>
+                                            <th>学号</th>
+                                            <th>学霸指数</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr v-for="info,index in topTenStudentInfo">
+                                            <th scope="row">{{index + 1}}</th>
+                                            <td>{{info.studentName}}</td>
+                                            <td>{{info.majorName}}</td>
+                                            <td>{{info.studentNo}}</td>
+                                            <td>{{info.studentScore}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="h6 text-uppercase mb-0">全校所有学院学霸数量对比</h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-height7 chart3"></div>
+                                    <div class="chart-height7 chart4"></div>
+                                    <div class="chart-height7 chart5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+            <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-left text-primary">
+                            <p class="mb-2 mb-md-0">Your company &copy; 2020-2021</p>
+                        </div>
+                        <div class="col-md-6 text-center text-md-right text-gray-400">
+                            <p class="mb-0">2019级相关学生性别统计
+                                <a href="javascript:;">智慧校园</a> - 数据来源
+                                <a href="javascript:;">后台接口</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script src="/commons/jquery/jquery.min.js"></script>
+<script src="/commons/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="/forestage/js/axios.min.js"></script>
+<script src="/forestage/js/echarts.min.js"></script>
+<script src="/forestage/js/vue.min.js"></script>
+
+
+<script src="/forestage/js/clickEffects.js"></script>
+<script src="/forestage/js/chart/goodStudent.js"></script>
+
+
+</body>
+
+</html>

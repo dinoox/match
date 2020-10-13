@@ -1,0 +1,83 @@
+
+.chart-height1 {
+    height: 100px
+}
+
+.chart-height2 {
+    height: 150px;
+}
+
+.chart-height3 {
+    height: 200px;
+}
+
+.chart-height4 {
+    height: 250px;
+}
+
+.chart-height5 {
+    height: 300px;
+}
+
+.chart-height6 {
+    height: 350px;
+}
+
+.chart-height7 {
+    height: 400px;
+}
+
+.chart-height8 {
+    height: 450px;
+}
+
+.chart-height9 {
+    height: 500px;
+}
+
+.chart-height10 {
+    height: 550px;
+}
+
+.chart-height11 {
+    height: 600px;
+}
+
+.chart-height12 {
+    height: 650px;
+}
+
+.chart-height13 {
+    height: 1200px;
+}
+
+
+
+
+
+.image1 {
+    background-image: url('../img/desk.png');
+    background-size: cover;
+}
+
+.image2 {
+    width: 184px;
+    height: 601px;
+    background-image: url('../img/tm4.png');
+    background-size: contain;
+    opacity: 0.5;
+}
+
+.image3 {
+    width: 404px;
+    height: 430px;
+    background-image: url('../img/restaurant.png');
+    background-size: contain;
+    opacity: 1;
+
+}
+
+/* vue斗篷 */
+[v-cloak] {
+    display: none;
+}

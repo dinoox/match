@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.IStudentDao">
+
+    <resultMap id="studentMap" type="Student">
+        <result property="no" column="no"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <result property="major" column="major"/>
+        <result property="province" column="province"/>
+        <result property="city" column="city"/>
+        <result property="povertyLevel" column="poverty_level"/>
+        <result property="admissionTime" column="admission_time"/>
+        <result property="cardConsume" column="card_consume"/>
+
+    </resultMap>
+
+
+
+    <select id="findAllStudent" resultMap="studentMap">
+        select * from student;
+    </select>
+
+    <select id="findStudentByNo" parameterType="String" resultMap="studentMap">
+        select * from student where no = #{no}
+    </select>
+
+    <select id="findStudentByGrade" parameterType="String" resultMap="studentMap">
+        select * from student where no like concat(#{grade},'%')
+    </select>
+
+    <select id="findStudentByMajor" parameterType="String" resultMap="studentMap">
+        select * from student where major = #{major}
+    </select>
+
+
+
+    <select id="findStudentByProvince" parameterType="String" resultMap="studentMap">
+        select * from student where province = #{province}
+    </select>
+
+    <insert id="insertStudent" parameterType="Student">
+        insert into student(no,name,age,sex,major,province,poverty_level,admission_time)
+        values(#{no},#{name},#{age},#{sex},#{major},#{province},#{povertyLevel},#{admissionTime})
+    </insert>
+
+    <update id="updateStudent" parameterType="Student">
+        update student
+        set name = #{name},age = #{age},sex = #{sex},major = #{major},province = #{province}, poverty_level = #{povertyLevel},admission_time = #{admissionTime}
+        where no= #{no}
+    </update>
+
+    <update id="update" parameterType="Student">
+        update student
+        set no = #{no}
+        where id=#{id} and major = #{major}
+    </update>
+
+    <delete id="deleteStudentByNo" parameterType="String">
+        delete from student where no = #{no}
+    </delete>
+
+</mapper>

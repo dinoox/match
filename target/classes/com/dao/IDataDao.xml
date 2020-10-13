@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.IDataDao">
+
+    <select id="findAllDepartmentStudentNum" parameterType="String" resultType="Data">
+        select
+		    d.name departmentName,count(s.no) studentNum
+        from
+		    department d
+        left join
+		    major m
+        on
+		    d.name = m.department
+        left join
+		    student s
+        on
+		    m.name = s.major
+        where
+            admission_time like concat(#{grade},'%')
+        group by
+		    d.name
+    </select>
+
+    <select id="findAllDepartmentStudentNumTopFive" parameterType="String" resultType="Data">
+        select
+		    d.name departmentName,count(s.no) studentNum
+        from
+		    department d
+        left join
+		    major m
+        on
+		    d.name = m.department
+        left join
+		    student s
+        on
+		    m.name = s.major
+        where
+            admission_time like concat(#{grade},'%')
+        group by
+		    d.name
+		order by
+			studentNum desc
+	    limit
+		    0,5
+    </select>
+
+    <select id="findAllDepartmentStudentNumInterceptBefore" parameterType="String" resultType="Data">
+        select
+		    d.name departmentName,count(s.no) studentNum
+        from
+		    department d
+        left join
+		    major m
+        on
+		    d.name = m.department
+        left join
+		    student s
+        on
+		    m.name = s.major and admission_time like concat(#{grade},'%')
+        group by
+		    d.name
+		limit
+		    0,9
+    </select>
+
+    <select id="findAllDepartmentStudentNumInterceptAfter" parameterType="String" resultType="Data">
+        select
+		    d.name departmentName,count(s.no) studentNum
+        from
+		    department d
+        left join
+		    major m
+        on
+		    d.name = m.department
+        left join
+		    student s
+        on
+		    m.name = s.major and admission_time like concat(#{grade},'%')
+        group by
+		    d.name
+		limit
+		    9,9
+    </select>
+
+    <select id="findAllProvinceMaleNum" parameterType="String" resultType="Data">
+        select
+            p.name provinceName,count(s.sex) studentNum
+        from
+            province p
+        left join
+            student s
+        on
+            s.province = p.name and s.sex = '男' and admission_time like concat(#{grade},'%')
+        group by
+            p.name,s.sex
+    </select>
+
+    <select id="findAllProvinceFemaleNum" parameterType="String" resultType="Data">
+        select
+            p.name provinceName,count(s.sex) studentNum
+        from
+            province p
+        left join
+            student s
+        on
+            s.province = p.name and s.sex = '女' and admission_time like concat(#{grade},'%')
+        group by
+            p.name,s.sex
+    </select>
+
+    <select id="findProvinceMaleNum" resultType="Integer">
+        select
+            count(*) studentNum
+        from
+            province p
+        left join
+            student s
+        on
+            s.province = p.name and s.sex = '男'
+        where
+              p.name = #{provinceName} and  admission_time like concat(#{grade},'%')
+    </select>
+
+    <select id="findProvinceFemaleNum" resultType="Integer">
+        select
+            count(*) studentNum
+        from
+            province p
+        left join
+            student s
+        on
+            s.province = p.name and s.sex = '女'
+        where
+            p.name = #{provinceName} and  admission_time like concat(#{grade},'%')
+    </select>
+
+    <select id="findProvinceStudentNum" resultType="Integer">
+        select
+            count(s.no) studentNum
+        from
+            province p
+        left join
+            student s
+        on
+            s.province = p.name
+        where
+            p.name = #{provinceName} and  admission_time like concat(#{grade},'%')
+    </select>
+
+    <select id="findAllProvinceStudentNum" parameterType="String" resultType="Data">
+        select
+            p.name provinceName,count(s.no) studentNum
+        from
+            province p
+        left join
+            student s
+        on
+            s.province = p.name and s.admission_time like concat(#{grade},'%')
+        group by
+            p.name
+    </select>
+
+    <select id="findAllDepartmentMaleNum" parameterType="String" resultType="Data">
+        select
+            d.name departmentName,count(s.no) studentNum
+        from
+            department d
+        left join
+            major m
+        on
+             m.department = d.name
+        left join
+            student s
+        on
+            m.name = s.major
+        where
+            sex = '男' and admission_time like concat(#{grade},'%')
+        group by
+            d.name
+    </select>
+
+    <select id="findAllDepartmentFemaleNum" parameterType="String" resultType="Data">
+        select
+            d.name departmentName,count(s.no) studentNum
+        from
+            department d
+        left join
+            major m
+        on
+            m.department = d.name
+        left join
+            student s
+        on
+            m.name = s.major
+        where
+            sex = '女' and admission_time like concat(#{grade},'%')
+        group by
+            d.name
+    </select>
+
+    <select id="findSchoolMaleNum" parameterType="String" resultType="Integer">
+        select
+            count(no) maleNum
+        from
+            student
+        where
+            sex = '男' and admission_time like concat(#{grade},'%')
+    </select>
+
+    <select id="findSchoolFemaleNum" parameterType="String" resultType="Integer">
+        select
+            count(no) femaleNum
+        from
+            student
+        where
+            sex = '女' and admission_time like concat(#{grade},'%')
+    </select>
+
+    <select id="findSchoolStudentNum" parameterType="String" resultType="Integer">
+        select
+            count(*) studentNum
+        from
+            student
+        where
+            admission_time like concat(#{grade},'%')
+    </select>
+
+    <select id="findCityStudentNum" resultType="Data">
+        select
+            c.name cityName,count(*) studentNum
+        from
+            city c
+        left join
+            student s
+        on
+            c.name = s.city
+        where
+            c.name = #{cityName} and s.admission_time like concat(#{grade},'%')
+    </select>
+
+    <select id="findProvinceAllCityStudentNum" resultType="Data">
+        select
+            c.name cityName,count(s.no) studentNum
+        from
+            province p
+        join
+            city c
+        on
+            c.province = p.name and p.name = #{provinceName}
+        left join
+            student s
+        on
+            s.city = c.name and s.admission_time like concat(#{grade},'%')
+        group by
+            c.name
+    </select>
+
+    <select id="findProvinceAllCityMaleNum" resultType="Data">
+        select
+            c.name cityName,count(s.no) maleNum
+        from
+            province p
+        join
+            city c
+        on
+            c.province = p.name and p.name = #{provinceName}
+        left join
+            student s
+        on
+            s.city = c.name and s.admission_time like concat(#{grade},'%') and s.sex = '男'
+        group by
+            c.name
+        order by
+            c.name
+    </select>
+
+    <select id="findProvinceAllCityFemaleNum" resultType="Data">
+        select
+            c.name cityName,count(s.no) femaleNum
+        from
+            province p
+        join
+            city c
+        on
+            c.province = p.name and p.name = #{provinceName}
+        left join
+            student s
+        on
+            s.city = c.name and s.admission_time like concat(#{grade},'%') and s.sex = '女'
+        group by
+            c.name
+        order by
+            c.name
+    </select>
+
+    <select id="findAllProvincePovertyScale" parameterType="String" resultType="Data">
+        select
+            p.name provinceName,
+            sum(case s.poverty_level when 0 then 1 else 0 end) povertyZeroStudentNum,
+            sum(case s.poverty_level when 1 then 1 else 0 end) povertyOneStudentNum,
+            sum(case s.poverty_level when 2 then 1 else 0 end) povertyTwoStudentNum,
+            sum(case s.poverty_level when 3 then 1 else 0 end) povertyThreeStudentNum
+        from
+            province p
+        left join
+            student s
+        on
+            p.name = s.province and s.admission_time like concat(#{grade},'%')
+        group by
+            p.name
+    </select>
+
+    <select id="findAllProvincePovertyScaleExceptShanDong" parameterType="String" resultType="Data">
+        select
+            p.name provinceName,
+            sum(case s.poverty_level when 0 then 1 else 0 end) povertyZeroStudentNum,
+            sum(case s.poverty_level when 1 then 1 else 0 end) povertyOneStudentNum,
+            sum(case s.poverty_level when 2 then 1 else 0 end) povertyTwoStudentNum,
+            sum(case s.poverty_level when 3 then 1 else 0 end) povertyThreeStudentNum
+        from
+            province p
+        left join
+            student s
+        on
+            p.name = s.province and s.admission_time like concat(#{grade},'%')
+        where
+            p.name != '山东'
+        group by
+            p.name
+    </select>
+
+    <select id="findAllProvinceGoodStudentNum" parameterType="String" resultType="Data">
+        select
+            p.name provinceName,count(studentScore) studentNum
+        from (
+                 select
+                     p.name provinceName,round(avg(st.score),2) studentScore
+                 from
+                     province p
+                 left join
+                     student s
+                 on
+                     p.name = s.province and s.admission_time like concat(#{grade},'%')
+                 left join
+                     student_term_info st on s.no = st.no
+                 group by
+                     p.name,s.no
+                 having
+                     studentScore >= 3.8 or isnull(studentScore)
+             ) t
+        right join
+             province p
+        on
+             p.name = t.provinceName
+        group by
+            p.name
+    </select>
+
+    <select id="findAllDepartmentGoodStudentInfo" parameterType="String" resultType="Data">
+        select
+            d.name departmentName,round(avg(st.score),2) studentScore,s.name studentName,s.major majorName
+        from
+            department d
+        left join
+            major m
+        on
+            d.name = m.department
+        left join
+            student s
+        on
+            m.name = s.major and s.admission_time like concat(#{grade},'%')
+        left join
+            student_term_info st
+        on
+            s.no = st.no
+        group by
+            d.name,s.name,s.major
+        having
+            studentScore >= 3.8
+    </select>
+
+    <select id="findAllDepartmentGoodStudentNum" parameterType="String" resultType="Data">
+        select
+            t.departmentName departmentName,count(studentScore) studentNum
+        from (
+                 select
+                     d.name departmentName,round(avg(st.score),2) studentScore
+                 from
+                     department d
+                 left join
+                     major m
+                 on
+                     d.name = m.department
+                 left join
+                     student s
+                 on
+                     m.name = s.major and s.admission_time like concat(#{grade},'%')
+                 left join
+                     student_term_info st
+                 on
+                     s.no = st.no
+                 group by
+                     d.name,s.no
+                 having
+                     studentScore >= 3.8
+             ) t
+        group by
+            t.departmentName
+    </select>
+
+    <select id="findSchoolTopTenStudent" parameterType="String" resultType="Data">
+        select
+            s.no studentNo,s.name studentName,s.major majorName,round(avg(st.score),2) studentScore
+        from
+            student s
+        join
+            student_term_info st
+        on
+                s.no = st.no and s.admission_time like concat(#{grade},'%')
+        group by
+            s.no,s.name,s.major
+        order by
+            studentScore desc
+        limit 0,10
+    </select>
+
+    <select id="findSchoolAllProvinceEmploymentStudentNum" parameterType="String" resultType="Data">
+        select
+            p.name provinceName,count(s.no) studentNum
+        from
+            student s
+        join
+            student_employment_info se
+        on
+            s.no = se.no and s.admission_time like concat(#{grade},'%')
+        right join
+            province p
+        on
+            p.name = se.province
+        group by
+            p.name
+
+    </select>
+
+    <select id="findDepartmentAllProvinceEmploymentStudentNum" resultType="Data">
+        select
+            p.name provinceName,count(s.no) studentNum
+        from
+            department d
+        join
+            major m
+        on
+            d.name = m.department and d.name = #{departmentName}
+        join
+            student s
+        on
+            m.name = s.major and s.admission_time like concat(#{grade},'%')
+        join
+            student_employment_info se
+        on
+            s.no = se.no
+        right join
+            province p
+        on
+            p.name = se.province
+        group by
+            p.name
+    </select>
+
+    <select id="findMajorAllProvinceEmploymentStudentNum" resultType="Data">
+        select
+            p.name provinceName,count(s.no) studentNum
+        from
+            student s
+        join
+            student_employment_info se
+        on
+            s.no = se.no and s.admission_time like concat(#{grade},'%') and s.major = #{majorName}
+        right join
+            province p
+        on
+            p.name = se.province
+        group by
+            p.name
+    </select>
+
+    <select id="findSchoolAllVocationStudentNum" parameterType="String" resultType="Data">
+        select
+            se.vocation vocationName,count(se.no) studentNum
+        from
+            student_employment_info se
+        where
+            no like concat(#{grade},'%')
+        group by
+            vocation
+    </select>
+
+    <select id="findDepartmentAllVocationStudentNum" resultType="Data">
+        select
+            se.vocation vocationName,count(se.no) studentNum
+        from
+            department d
+        join
+            major m
+        on
+             d.name = m.department and d.name = #{departmentName}
+        join
+            student s
+        on
+            s.major = m.name and s.admission_time like concat(#{grade},'%')
+        join
+            student_employment_info se
+        on
+            se.no = s.no
+        group by
+            se.vocation
+    </select>
+
+    <select id="findMajorAllVocationStudentNum" resultType="Data">
+        select
+            se.vocation vocationName,count(se.no) studentNum
+        from
+            student s
+        join
+            student_employment_info se
+        on
+            s.no = se.no and s.admission_time like concat(#{grade},'%') and s.major = #{majorName}
+        group by
+            se.vocation
+    </select>
+
+    <select id="findAllTermCardConsume" parameterType="String" resultType="Data">
+        select
+            st.term termName,sum(st.card_consume) cardConsume
+        from
+            student s
+        join
+            student_term_info st
+        on
+            s.no = st.no and s.no like concat(#{grade},'%')
+        group by
+            term
+    </select>
+
+    <select id="findAllTermMaleCardConsume" parameterType="String" resultType="Data">
+        select
+            st.term termName,sum(st.card_consume) cardConsume
+        from
+            student s
+        join
+            student_term_info st
+        on
+            s.no = st.no and s.no like concat(#{grade},'%') and s.sex = '男'
+        group by
+            st.term
+    </select>
+
+    <select id="findAllTermFemaleCardConsume" parameterType="String" resultType="Data">
+        select
+            st.term termName,sum(st.card_consume) cardConsume
+        from
+            student s
+                join
+            student_term_info st
+            on
+                s.no = st.no and s.no like concat(#{grade},'%') and s.sex = '女'
+        group by
+            st.term
+    </select>
+
+    <select id="findAllProvinceAllTermCardConsume" parameterType="String" resultType="Data">
+        select
+            p.name provinceName,ifnull(sum(st.card_consume),0) cardConsume
+        from
+            student s
+        join
+            student_term_info st
+        on
+            s.admission_time like '2018%' and s.no = st.no
+        right join
+            province p
+        on
+            p.name = s.province
+        group by
+            p.name
+    </select>
+
+    <select id="findAllProvinceStudentRecruit" parameterType="String" resultType="Data">
+        select
+            p.name provinceName,ifnull(sum(num),0) studentNum
+        from
+            province p
+        left join
+            student_recruit_info sr
+        on
+            p.name = sr.province
+        group by
+            p.name
+    </select>
+
+    <select id="findAllForeignStudentRecruit" parameterType="String" resultType="Data">
+        select
+            country provinceName,num studentNum
+        from
+            student_foreign_recruit_info
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.IStudentTermInfoDao">
+
+    <resultMap id="studentTermInfoMap" type="Student">
+        <result property="no" column="no"></result>
+        <result property="term" column="term"></result>
+        <result property="score" column="score"></result>
+        <result property="cardConsume" column="card_consume"></result>
+    </resultMap>
+
+
+
+
+    <insert id="insertStudentTermInfo" parameterType="StudentTermInfo">
+        insert into student_term_info(no,term,score,card_consume)
+        values (#{no},#{term},#{score},#{cardConsume})
+    </insert>
+
+
+
+</mapper>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/commons/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/commons/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="/backstage/css/font.css">
+
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/backstage/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/mine/mine.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/backstage/img/favicon.ico">
+
+  </head>
+
+
+  <body>
+    <header class="header">   
+      <div th:replace="~{backstage/commons/bar::topbar}"></div>
+    </header>
+    <div class="d-flex align-items-stretch">
+
+      <div th:replace="~{backstage/commons/bar::#sidebar(active = 5)}"></div>
+
+      <div class="page-content">
+
+        <div class="col-lg-12">
+          <div class="block margin-bottom-sm mt-3">
+            <div class="title"><strong>专业管理</strong></div>
+            <div class="table-responsive">
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>专业编号</th>
+                    <th>专业名称</th>
+                    <th>所属院系</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="major,index:${majors}">
+                    <td th:text="${index.count}"></td>
+                    <td th:text="${major.no}"></td>
+                    <td th:text="${major.name}"></td>
+                    <td th:text="${major.department}"></td>
+                    <td>
+                      <a class="button-edit" th:href="@{/toEditMajorPage(no=${major.no})}">编辑</a>
+                      <a class="button-delete"  href="#">删除</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+          <div class="cut">
+            <ul>
+              <li><a href="/findAllMajor?startIndex=0">1</a></li>
+              <li><a href="/findAllMajor?startIndex=13">2</a></li>
+              <li><a href="/findAllMajor?startIndex=26">3</a></li>
+              <li><a href="/findAllMajor?startIndex=39">4</a></li>
+              <li><a href="/findAllMajor?startIndex=52">5</a></li>
+              <li><a href="/findAllMajor?startIndex=65">6</a></li>
+              <li><a href="/findAllMajor?startIndex=78">7</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <script src="/backstage/vendor/jquery/jquery.min.js"></script>
+    <script src="/commons/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/backstage/js/front.js"></script>
+
+
+
+  </body>
+</html>

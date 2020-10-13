@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.IPovertyDao">
+
+    <select id="findAllPoverty" resultType="Poverty">
+        select * from poverty;
+    </select>
+
+    <select id="findPovertyByLevel" parameterType="Integer" resultType="Poverty">
+        select * from poverty where level = #{level};
+    </select>
+
+    <insert id="insertPoverty" parameterType="Poverty">
+        insert into poverty(level,name,money) values(#{level},#{name},#{money})
+    </insert>
+
+    <update id="updatePoverty" parameterType="Poverty">
+        update poverty set level=#{level},name=#{name},money=#{money} where level=#{level}
+    </update>
+
+    <delete id="deletePovertyByLevel" parameterType="Integer">
+        delete from poverty where level = #{level}
+    </delete>
+
+</mapper>

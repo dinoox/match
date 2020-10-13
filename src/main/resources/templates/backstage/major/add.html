@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/commons/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/commons/font-awesome/css/font-awesome.min.css">
+    <!-- Custom Font Icons CSS-->
+    <link rel="stylesheet" href="/backstage/css/font.css">
+
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/backstage/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/backstage/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/backstage/img/favicon.ico">
+
+
+
+  </head>
+
+  <body>
+    <header class="header">   
+      <div th:replace="~{backstage/commons/bar::topbar}"></div>
+    </header>
+    <div class="d-flex align-items-stretch">
+
+      <div th:replace="~{backstage/commons/bar::#sidebar(active = 5)}"></div>
+
+      <div class="page-content">
+
+        <div class="col-lg-6">
+          <div class="block mt-3">
+            <div class="title"><strong class="d-block">院系添加</strong><span class="d-block">请添加想要定制的院系</span></div>
+            <div class="block-body">
+              <form class="form-horizontal">
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">院系编号</label>
+                  <div class="col-sm-9">
+                    <input id="inputHorizontalSuccess" type="email" placeholder="xxx" class="form-control form-control-success"><small class="form-text">输入想要的院系编号</small>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">院系名称</label>
+                  <div class="col-sm-9">
+                    <input  type="email" placeholder="xxx" class="form-control form-control-success"><small class="form-text">输入想要的院系名称</small>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-3 form-control-label">联系方式</label>
+                  <div class="col-sm-9">
+                    <input id="inputHorizontalWarning" type="password" placeholder="xxxx-xxxxxxxx" class="form-control form-control-warning"><small class="form-text">填入院系对外联系方式</small>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-9 offset-sm-3">
+                    <input type="submit" value="添加" class="btn btn-primary">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="/backstage/vendor/jquery/jquery.min.js"></script>
+    <script src="/commons/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/backstage/js/front.js"></script>
+
+  </body>
+</html>
